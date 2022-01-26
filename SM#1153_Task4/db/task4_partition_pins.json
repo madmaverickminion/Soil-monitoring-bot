@@ -1,0 +1,321 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "din",
+					"strict" : false
+				},
+				{
+					"name" : "adc_sck",
+					"strict" : false
+				},
+				{
+					"name" : "d_input1",
+					"strict" : false
+				},
+				{
+					"name" : "d_input2",
+					"strict" : false
+				},
+				{
+					"name" : "d_input3",
+					"strict" : false
+				},
+				{
+					"name" : "r_node_detected_temp",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT",
+					"strict" : false
+				},
+				{
+					"name" : "temp",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT10",
+					"strict" : false
+				},
+				{
+					"name" : "temp11",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT12",
+					"strict" : false
+				},
+				{
+					"name" : "temp13",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT14",
+					"strict" : false
+				},
+				{
+					"name" : "temp15",
+					"strict" : false
+				},
+				{
+					"name" : "blue2",
+					"strict" : false
+				},
+				{
+					"name" : "green3",
+					"strict" : false
+				},
+				{
+					"name" : "red1",
+					"strict" : false
+				},
+				{
+					"name" : "tx",
+					"strict" : false
+				},
+				{
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "s3",
+					"strict" : false
+				},
+				{
+					"name" : "color[1]",
+					"strict" : false
+				},
+				{
+					"name" : "color[0]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[15]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[14]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[13]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[12]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[11]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[10]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[9]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[8]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[7]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[6]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[5]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[4]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[3]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[2]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[1]",
+					"strict" : false
+				},
+				{
+					"name" : "count_blue[0]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[15]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[14]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[13]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[12]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[11]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[10]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[9]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[8]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[7]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[6]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[5]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[4]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[3]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[2]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[1]",
+					"strict" : false
+				},
+				{
+					"name" : "count_green[0]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[15]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[14]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[13]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[12]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[11]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[10]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[9]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[8]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[7]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[6]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[5]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[4]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[3]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[2]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[1]",
+					"strict" : false
+				},
+				{
+					"name" : "count_red[0]",
+					"strict" : false
+				},
+				{
+					"name" : "counter_temp[2]",
+					"strict" : false
+				},
+				{
+					"name" : "counter_temp[1]",
+					"strict" : false
+				},
+				{
+					"name" : "counter_temp[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_frame[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_frame[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "freq",
+					"strict" : false
+				},
+				{
+					"name" : "dout",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

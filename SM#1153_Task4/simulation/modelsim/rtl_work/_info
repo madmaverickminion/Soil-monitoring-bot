@@ -1,0 +1,32 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task4/simulation/modelsim
+vadc_control
+!s110 1640932373
+!i10b 1
+!s100 4bd>0e6>=HP[R8EZ?CBlc3
+IZle>G5o[khWg6SPYL92bZ0
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1640932145
+8C:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control/adc_control.v
+FC:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control/adc_control.v
+L0 22
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1640932373.000000
+!s107 C:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control/adc_control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control|C:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control/adc_control.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/Saksham/Desktop/EYANTRAIITB_Sm/SM#1153_Task2A/adc_control
+tCvgOpt 0

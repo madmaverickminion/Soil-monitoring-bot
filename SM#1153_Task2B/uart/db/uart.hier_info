@@ -1,0 +1,40 @@
+|uart
+clk_50M => next[0].CLK
+clk_50M => next[1].CLK
+clk_50M => next[2].CLK
+clk_50M => r_data_bits[0].CLK
+clk_50M => r_data_bits[1].CLK
+clk_50M => r_data_bits[2].CLK
+clk_50M => r_data_bits[3].CLK
+clk_50M => r_data_bits[4].CLK
+clk_50M => r_data_bits[5].CLK
+clk_50M => r_data_bits[6].CLK
+clk_50M => r_data_bits[7].CLK
+clk_50M => tx_serial.CLK
+clk_50M => r_bit_index[0].CLK
+clk_50M => r_bit_index[1].CLK
+clk_50M => r_bit_index[2].CLK
+clk_50M => r_clock_count1[0].CLK
+clk_50M => r_clock_count1[1].CLK
+clk_50M => r_clock_count1[2].CLK
+clk_50M => r_clock_count1[3].CLK
+clk_50M => r_clock_count1[4].CLK
+clk_50M => r_clock_count1[5].CLK
+clk_50M => r_clock_count1[6].CLK
+clk_50M => r_clock_count1[7].CLK
+clk_50M => r_clock_count1[8].CLK
+clk_50M => r_clock_count1[9].CLK
+clk_50M => r_clock_count[0].CLK
+clk_50M => r_clock_count[1].CLK
+clk_50M => r_clock_count[2].CLK
+clk_50M => r_clock_count[3].CLK
+clk_50M => r_clock_count[4].CLK
+clk_50M => r_clock_count[5].CLK
+clk_50M => r_clock_count[6].CLK
+clk_50M => r_clock_count[7].CLK
+clk_50M => r_clock_count[8].CLK
+clk_50M => r_clock_count[9].CLK
+clk_50M => r_state~1.DATAIN
+tx << tx_serial.DB_MAX_OUTPUT_PORT_TYPE
+
+

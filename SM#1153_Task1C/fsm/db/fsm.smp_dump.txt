@@ -1,0 +1,8 @@
+
+State Machine - |fsm|PS
+Name PS.S3 PS.S2 PS.S1 PS.S0 PS.S4 
+PS.S0 0 0 0 0 0 
+PS.S1 0 0 1 1 0 
+PS.S2 0 1 0 1 0 
+PS.S3 1 0 0 1 0 
+PS.S4 0 0 0 1 1 

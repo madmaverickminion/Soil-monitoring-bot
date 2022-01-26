@@ -1,0 +1,8 @@
+
+State Machine - |uart|r_state
+Name r_state.cleanup r_state.tx_stop_bit r_state.tx_start_bit r_state.IDLE r_state.tx_data_bit 
+r_state.IDLE 0 0 0 0 0 
+r_state.tx_start_bit 0 0 1 1 0 
+r_state.tx_data_bit 0 0 0 1 1 
+r_state.tx_stop_bit 0 1 0 1 0 
+r_state.cleanup 1 0 0 1 0 

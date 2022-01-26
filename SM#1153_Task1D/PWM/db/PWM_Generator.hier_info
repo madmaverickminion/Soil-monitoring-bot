@@ -1,0 +1,28 @@
+|PWM_Generator
+clk => counter1[0].CLK
+clk => counter1[1].CLK
+clk => counter1[2].CLK
+clk => counter1[3].CLK
+clk => counter1[4].CLK
+clk => counter1[5].CLK
+clk => counter1[6].CLK
+clk => counter1[7].CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+DUTY_CYCLE[0] => ~NO_FANOUT~
+DUTY_CYCLE[1] => Add1.IN14
+DUTY_CYCLE[2] => Add1.IN13
+DUTY_CYCLE[3] => Add1.IN12
+DUTY_CYCLE[4] => Add1.IN11
+DUTY_CYCLE[5] => Add1.IN10
+DUTY_CYCLE[6] => Add1.IN9
+DUTY_CYCLE[7] => Add1.IN8
+PWM_OUT << LessThan2.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at SM1153_uart.v(50): always construct contains both blocking and non-blocking assignments File: C:/Users/Saksham/Desktop/adc_test/SM#1153_Task4/SM1153_uart.v Line: 50

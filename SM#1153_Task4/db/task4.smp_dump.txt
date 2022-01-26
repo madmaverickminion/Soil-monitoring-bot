@@ -1,0 +1,15 @@
+
+State Machine - |task4|SM1153_uart:inst7|r_state
+Name r_state.rest r_state.cleanup r_state.tx_stop_bit r_state.tx_data_bit r_state.tx_start_bit r_state.IDLE 
+r_state.IDLE 0 0 0 0 0 0 
+r_state.tx_start_bit 0 0 0 0 1 1 
+r_state.tx_data_bit 0 0 0 1 0 1 
+r_state.tx_stop_bit 0 0 1 0 0 1 
+r_state.cleanup 0 1 0 0 0 1 
+r_state.rest 1 0 0 0 0 1 
+
+State Machine - |task4|SM1153_node_detection:inst9|current_state
+Name current_state.IDLE current_state.rest current_state.node 
+current_state.IDLE 0 0 0 
+current_state.node 1 0 1 
+current_state.rest 1 1 0 
