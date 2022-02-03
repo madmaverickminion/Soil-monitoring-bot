@@ -1,0 +1,145 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "node4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[7]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[8]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[9]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[10]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[11]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[12]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[13]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[14]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[15]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[16]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[17]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[18]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[19]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[20]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[21]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[22]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[23]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[24]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[25]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[26]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[27]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[28]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[29]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[30]",
+					"strict" : false
+				},
+				{
+					"name" : "node5[31]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
