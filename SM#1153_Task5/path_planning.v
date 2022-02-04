@@ -1,4 +1,7 @@
-module path_planning(
+/*minvertex ka declaration glt ho sakta hai 
+
+*/
+module test_(
 input clk_50,
 output [31:0] node1,
 output [31:0] node2,
@@ -9,7 +12,7 @@ output [31:0]node5
 //00 straight, 01 left , 10 right , 11 backward
 //00 west 01 east 10 north 11 south
 parameter n=36;
-reg [1:0]robo_command[0:n];
+reg [2:0]robo_command[0:n];
 reg [1:0]direction=00;//west
 
 reg [31:0]counter1=0;
@@ -24,8 +27,8 @@ integer path[0:n];
 integer dist;
 integer distance[0:n];
 
-integer start_node=0;////////////////////////
-integer end_node=11;///////////////////////////
+integer start_node=1;////////////////////////
+integer end_node=16;///////////////////////////
 
 integer visited[0:n];
 integer i;
@@ -44,6 +47,10 @@ for(i=0;i<=n;i=i+1)begin
 for(j=0;j<=n;j=j+1)begin
 arena[i][j]=0;
 end
+end
+for(i=0;i<=n;i=i+1)begin
+robo_command[i]=-1;
+
 end
 
 arena[0][1]=1;arena[0][9]=1;arena[0][8]=1;arena[1][0]=1;arena[9][0]=1;arena[8][0]=1;
@@ -132,14 +139,15 @@ end
 path1[i]=t;
 
 t=0;
-for(j=i;j>=1;j=j-1)begin
-if(x_coordinate[j]>x_coordinate[j-1]&&y_coordinate[j]==y_coordinate[j-1])begin
+for(j=36;j>=1;j=j-1)begin
+if(path1[j]!=-1)begin
+if(x_coordinate[path1[j]]>x_coordinate[path1[j-1]]&&y_coordinate[path1[j]]==y_coordinate[path1[j-1]])begin
 //final direction of bot should be north
 	if(direction==00)begin
-	robo_command[t]=2//right;
+	robo_command[t]=2;//right;
 	end
 	else if(direction==01)begin
-	robo_command[t]=1//left
+	robo_command[t]=1;//left
 	end
 	else if(direction==2)begin
 	robo_command[t]=0;
@@ -149,7 +157,7 @@ if(x_coordinate[j]>x_coordinate[j-1]&&y_coordinate[j]==y_coordinate[j-1])begin
 	end
 	direction=2;
 end
-else if(x_coordinate[j]<x_coordinate[j-1]&&y_coordinate[j]==y_coordinate[j-1])begin
+else if(x_coordinate[path1[j]]<x_coordinate[path1[j-1]]&&y_coordinate[path1[j]]==y_coordinate[path1[j-1]])begin
 //final direction of bot should be south
 	if(direction==00)begin
 	robo_command[t]=1;
@@ -165,13 +173,13 @@ else if(x_coordinate[j]<x_coordinate[j-1]&&y_coordinate[j]==y_coordinate[j-1])be
 	end
 	direction=3;
 end
-else if(y_coordinate[j]<y_coordinate[j-1]&&x_coordinate[j]==x_coordinate[j-1])begin
+else if(y_coordinate[path1[j]]<y_coordinate[path1[j-1]]&&x_coordinate[path1[j]]==x_coordinate[path1[j-1]])begin
 //final direction of bot should be west
 if(direction==0)begin
-	robo_command[t]=0//backward
+	robo_command[t]=0;//backward
 	end
 	else if(direction==1)begin
-	robo_command[t]=3//
+	robo_command[t]=3;//
 	end
 	else if(direction==2)begin
 	robo_command[t]=1;
@@ -181,13 +189,13 @@ if(direction==0)begin
 	end
 	direction=0;
 end
-else if(y_coordinate[j]>y_coordinate[j-1]&&x_coordinate[j]==x_coordinate[j-1])begin
+else if(y_coordinate[path1[j]]>y_coordinate[path1[j-1]]&&x_coordinate[path1[j]]==x_coordinate[path1[j-1]])begin
 //final direction of bot should be east
 	if(direction==00)begin
-	robo_command[t]=3//right;
+	robo_command[t]=3;//right;
 	end
 	else if(direction==01)begin
-	robo_command[t]=0//straight
+	robo_command[t]=0;//straight
 	end
 	else if(direction==2)begin
 	robo_command[t]=2;
@@ -198,47 +206,52 @@ else if(y_coordinate[j]>y_coordinate[j-1]&&x_coordinate[j]==x_coordinate[j-1])be
 	direction=1;
 end
 else begin
-if(x_coordinate[j]==55 && y_coordinate[j]==130 &&x_coordinate[j-1]==20&&y_coordinate[j-1]==115)begin
+if(x_coordinate[path1[j]]==55 && y_coordinate[path1[j]]==130 &&x_coordinate[path1[j-1]]==20&&y_coordinate[path1[j-1]]==115)begin
 robo_command[t]=0;
 direction=2;//north
 end
-else if(x_coordinate[j-1]==55 && y_coordinate[j-1]==130 &&x_coordinate[j]==20&&y_coordinate[j]==115)begin
+else if(x_coordinate[path1[j-1]]==55 && y_coordinate[path1[j-1]]==130 &&x_coordinate[path1[j]]==20&&y_coordinate[path1[j]]==115)begin
 robo_command[t]=0;
 direction=3;
 end
-else if(x_coordinate[j]==55 && y_coordinate[j]==155 &&x_coordinate[j-1]==35&&y_coordinate[j-1]==170)begin
+else if(x_coordinate[path1[j]]==55 && y_coordinate[path1[j]]==155 &&x_coordinate[path1[j-1]]==35&&y_coordinate[path1[j-1]]==170)begin
 robo_command[t]=0;
 direction=2;
 end
-else if(x_coordinate[j-1]==55 && y_coordinate[j-1]==155 &&x_coordinate[j]==35&&y_coordinate[j]==170)begin
+else if(x_coordinate[path1[j-1]]==55 && y_coordinate[path1[j-1]]==155 &&x_coordinate[path1[j]]==35&&y_coordinate[path1[j]]==170)begin
 robo_command[t]=0;
 direction=3;
 end
-else if(x_coordinate[j]==20 && y_coordinate[j]==170 &&x_coordinate[j-1]==0&&y_coordinate[j-1]==150)begin
+else if(x_coordinate[path1[j]]==20 && y_coordinate[path1[j]]==170 &&x_coordinate[path1[j-1]]==0&&y_coordinate[path1[j-1]]==150)begin
 robo_command[t]=0;
 direction=1;
 end
-else if(x_coordinate[j-1]==20 && y_coordinate[j-1]==170 &&x_coordinate[j]==0&&y_coordinate[j]==150)begin
+else if(x_coordinate[path1[j-1]]==20 && y_coordinate[path1[j-1]]==170 &&x_coordinate[path1[j]]==0&&y_coordinate[path1[j]]==150)begin
 robo_command[t]=0;
 direction=3;
 end
-else if(x_coordinate[j]==0 && y_coordinate[j]==120 &&x_coordinate[j-1]==20&&y_coordinate[j-1]==115)begin
+else if(x_coordinate[path1[j]]==0 && y_coordinate[path1[j]]==120 &&x_coordinate[path1[j-1]]==20&&y_coordinate[path1[j-1]]==115)begin
 robo_command[t]=0;
 direction=3;
 end
-else if(x_coordinate[j-1]==0 && y_coordinate[j-1]==120 &&x_coordinate[j]==20&&y_coordinate[j]==115)begin
+else if(x_coordinate[path1[j-1]]==0 && y_coordinate[path1[j-1]]==120 &&x_coordinate[path1[j]]==20&&y_coordinate[path1[j]]==115)begin
 robo_command[t]=0;
 direction=0;
 end
 
 end
+t=t+1;
 end
 end
 
+end
 
-assign node5=path1[5];
-assign node4=path1[3];
-assign node3=path1[2];
-assign node2=path1[1];
-assign node1=path1[0];
+end
+
+
+assign node5=robo_command[5];
+assign node4=robo_command[3];
+assign node3=robo_command[2];
+assign node2=robo_command[1];
+assign node1=robo_command[0];
 endmodule
