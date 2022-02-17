@@ -1,0 +1,1290 @@
+Analysis & Synthesis report for SM_1153_path_planning
+Mon Feb 14 19:48:47 2022
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |SM_1153_task_5|SM_1153_uart:inst12|r_state
+  9. State Machine - |SM_1153_task_5|SM_1153_node_detection:inst13|current_state
+ 10. State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|direction
+ 11. State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|state
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: SM_1153_adc_control:inst
+ 18. Parameter Settings for User Entity Instance: SM_1153_robot_control:inst20
+ 19. Parameter Settings for User Entity Instance: SM_1153_path_planning:inst15
+ 20. Parameter Settings for User Entity Instance: SM_1153_colour_detection:inst7
+ 21. Parameter Settings for User Entity Instance: SM_1153_node_detection:inst13
+ 22. Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst17
+ 23. Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst18
+ 24. Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst19
+ 25. Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst16
+ 26. Parameter Settings for User Entity Instance: SM_1153_uart:inst12
+ 27. Parameter Settings for Inferred Entity Instance: SM_1153_robot_control:inst20|lpm_mult:Mult0
+ 28. lpm_mult Parameter Settings by Entity Instance
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Feb 14 19:48:47 2022       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; SM_1153_path_planning                       ;
+; Top-level Entity Name              ; SM_1153_task_5                              ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 4,874                                       ;
+;     Total combinational functions  ; 4,622                                       ;
+;     Dedicated logic registers      ; 1,049                                       ;
+; Total registers                    ; 1049                                        ;
+; Total pins                         ; 37                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                 ;
++------------------------------------------------------------------+--------------------+-----------------------+
+; Option                                                           ; Setting            ; Default Value         ;
++------------------------------------------------------------------+--------------------+-----------------------+
+; Device                                                           ; EP4CE22F17C6       ;                       ;
+; Top-level entity name                                            ; SM_1153_task_5     ; SM_1153_path_planning ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V             ;
+; Use smart compilation                                            ; Off                ; Off                   ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                    ;
+; Enable compact report table                                      ; Off                ; Off                   ;
+; Restructure Multiplexers                                         ; Auto               ; Auto                  ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                   ;
+; Preserve fewer node names                                        ; On                 ; On                    ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable                ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001          ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993             ;
+; State Machine Processing                                         ; Auto               ; Auto                  ;
+; Safe State Machine                                               ; Off                ; Off                   ;
+; Extract Verilog State Machines                                   ; On                 ; On                    ;
+; Extract VHDL State Machines                                      ; On                 ; On                    ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                   ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000                  ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                   ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                    ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                    ;
+; Parallel Synthesis                                               ; On                 ; On                    ;
+; DSP Block Balancing                                              ; Auto               ; Auto                  ;
+; NOT Gate Push-Back                                               ; On                 ; On                    ;
+; Power-Up Don't Care                                              ; On                 ; On                    ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                   ;
+; Remove Duplicate Registers                                       ; On                 ; On                    ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                   ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                   ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                   ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                   ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                   ;
+; Ignore SOFT Buffers                                              ; On                 ; On                    ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                   ;
+; Optimization Technique                                           ; Balanced           ; Balanced              ;
+; Carry Chain Length                                               ; 70                 ; 70                    ;
+; Auto Carry Chains                                                ; On                 ; On                    ;
+; Auto Open-Drain Pins                                             ; On                 ; On                    ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                   ;
+; Auto ROM Replacement                                             ; On                 ; On                    ;
+; Auto RAM Replacement                                             ; On                 ; On                    ;
+; Auto DSP Block Replacement                                       ; On                 ; On                    ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto                  ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto                  ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                    ;
+; Strict RAM Replacement                                           ; Off                ; Off                   ;
+; Allow Synchronous Control Signals                                ; On                 ; On                    ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                   ;
+; Auto RAM Block Balancing                                         ; On                 ; On                    ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                   ;
+; Auto Resource Sharing                                            ; Off                ; Off                   ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                   ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                   ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                   ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                    ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                   ;
+; Timing-Driven Synthesis                                          ; On                 ; On                    ;
+; Report Parameter Settings                                        ; On                 ; On                    ;
+; Report Source Assignments                                        ; On                 ; On                    ;
+; Report Connectivity Checks                                       ; On                 ; On                    ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                   ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                     ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation    ;
+; HDL message level                                                ; Level2             ; Level2                ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                   ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000                  ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000                  ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                   ;
+; Clock MUX Protection                                             ; On                 ; On                    ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                   ;
+; Block Design Naming                                              ; Auto               ; Auto                  ;
+; SDC constraint protection                                        ; Off                ; Off                   ;
+; Synthesis Effort                                                 ; Auto               ; Auto                  ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                    ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                   ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium                ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto                  ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                    ;
++------------------------------------------------------------------+--------------------+-----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
+; SM_1153_path_planning.v          ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v    ;         ;
+; SM_1153_robot_control.v          ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v    ;         ;
+; SM_1153_node_detection.v         ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v   ;         ;
+; SM_1153_adc_control.v            ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v      ;         ;
+; SM_1153_PWM_Generator.v          ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_PWM_Generator.v    ;         ;
+; SM_1153_colour_detection.v       ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v ;         ;
+; SM_1153_uart.v                   ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_uart.v             ;         ;
+; SM_1153_led_output.v             ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_led_output.v       ;         ;
+; SM_1153_commands.v               ; yes             ; User Verilog HDL File              ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_commands.v         ;         ;
+; SM_1153_task_5.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_task_5.bdf         ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mult.tdf               ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc             ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_add_sub.inc            ;         ;
+; multcore.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/multcore.inc               ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/bypassff.inc               ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altshift.inc               ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/multcore.tdf               ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/csa_add.inc                ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/mpar_add.inc               ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/muleabz.inc                ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/mul_lfrg.inc               ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/mul_boothc.inc             ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/alt_ded_mult.inc           ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc         ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/dffpipe.inc                ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/mpar_add.tdf               ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_add_sub.tdf            ;         ;
+; addcore.inc                      ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/addcore.inc                ;         ;
+; look_add.inc                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/look_add.inc               ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc    ;         ;
+; db/add_sub_1jh.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/db/add_sub_1jh.tdf         ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altshift.tdf               ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 4,874        ;
+;                                             ;              ;
+; Total combinational functions               ; 4622         ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 3120         ;
+;     -- 3 input functions                    ; 762          ;
+;     -- <=2 input functions                  ; 740          ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 4006         ;
+;     -- arithmetic mode                      ; 616          ;
+;                                             ;              ;
+; Total registers                             ; 1049         ;
+;     -- Dedicated logic registers            ; 1049         ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 37           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 892          ;
+; Total fan-out                               ; 19502        ;
+; Average fan-out                             ; 3.39         ;
++---------------------------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                  ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                            ; Entity Name              ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; |SM_1153_task_5                                ; 4622 (0)            ; 1049 (0)                  ; 0           ; 0            ; 0       ; 0         ; 37   ; 0            ; |SM_1153_task_5                                                                                                                                ; SM_1153_task_5           ; work         ;
+;    |SM_1153_PWM_Generator:inst16|              ; 37 (37)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_PWM_Generator:inst16                                                                                                   ; SM_1153_PWM_Generator    ; work         ;
+;    |SM_1153_PWM_Generator:inst17|              ; 37 (37)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_PWM_Generator:inst17                                                                                                   ; SM_1153_PWM_Generator    ; work         ;
+;    |SM_1153_PWM_Generator:inst18|              ; 21 (21)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_PWM_Generator:inst18                                                                                                   ; SM_1153_PWM_Generator    ; work         ;
+;    |SM_1153_PWM_Generator:inst19|              ; 33 (33)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_PWM_Generator:inst19                                                                                                   ; SM_1153_PWM_Generator    ; work         ;
+;    |SM_1153_adc_control:inst|                  ; 39 (39)             ; 66 (66)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_adc_control:inst                                                                                                       ; SM_1153_adc_control      ; work         ;
+;    |SM_1153_colour_detection:inst7|            ; 187 (187)           ; 90 (90)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_colour_detection:inst7                                                                                                 ; SM_1153_colour_detection ; work         ;
+;    |SM_1153_commands:inst14|                   ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_commands:inst14                                                                                                        ; SM_1153_commands         ; work         ;
+;    |SM_1153_led_output:inst9|                  ; 5 (5)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_led_output:inst9                                                                                                       ; SM_1153_led_output       ; work         ;
+;    |SM_1153_node_detection:inst13|             ; 67 (67)             ; 45 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_node_detection:inst13                                                                                                  ; SM_1153_node_detection   ; work         ;
+;    |SM_1153_path_planning:inst15|              ; 3834 (3834)         ; 611 (611)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_path_planning:inst15                                                                                                   ; SM_1153_path_planning    ; work         ;
+;    |SM_1153_robot_control:inst20|              ; 235 (227)           ; 116 (116)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20                                                                                                   ; SM_1153_robot_control    ; work         ;
+;       |lpm_mult:Mult0|                         ; 8 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20|lpm_mult:Mult0                                                                                    ; lpm_mult                 ; work         ;
+;          |multcore:mult_core|                  ; 8 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core                                                                 ; multcore                 ; work         ;
+;             |mpar_add:padder|                  ; 3 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ; mpar_add                 ; work         ;
+;                |lpm_add_sub:adder[0]|          ; 3 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ; lpm_add_sub              ; work         ;
+;                   |add_sub_1jh:auto_generated| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_1jh:auto_generated ; add_sub_1jh              ; work         ;
+;    |SM_1153_uart:inst12|                       ; 124 (124)           ; 46 (46)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SM_1153_task_5|SM_1153_uart:inst12                                                                                                            ; SM_1153_uart             ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SM_1153_task_5|SM_1153_uart:inst12|r_state                                                                             ;
++----------------------+--------------+-----------------+---------------------+---------------------+----------------------+--------------+
+; Name                 ; r_state.rest ; r_state.cleanup ; r_state.tx_stop_bit ; r_state.tx_data_bit ; r_state.tx_start_bit ; r_state.IDLE ;
++----------------------+--------------+-----------------+---------------------+---------------------+----------------------+--------------+
+; r_state.IDLE         ; 0            ; 0               ; 0                   ; 0                   ; 0                    ; 0            ;
+; r_state.tx_start_bit ; 0            ; 0               ; 0                   ; 0                   ; 1                    ; 1            ;
+; r_state.tx_data_bit  ; 0            ; 0               ; 0                   ; 1                   ; 0                    ; 1            ;
+; r_state.tx_stop_bit  ; 0            ; 0               ; 1                   ; 0                   ; 0                    ; 1            ;
+; r_state.cleanup      ; 0            ; 1               ; 0                   ; 0                   ; 0                    ; 1            ;
+; r_state.rest         ; 1            ; 0               ; 0                   ; 0                   ; 0                    ; 1            ;
++----------------------+--------------+-----------------+---------------------+---------------------+----------------------+--------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |SM_1153_task_5|SM_1153_node_detection:inst13|current_state       ;
++--------------------+--------------------+--------------------+--------------------+
+; Name               ; current_state.IDLE ; current_state.rest ; current_state.node ;
++--------------------+--------------------+--------------------+--------------------+
+; current_state.IDLE ; 0                  ; 0                  ; 0                  ;
+; current_state.node ; 1                  ; 0                  ; 1                  ;
+; current_state.rest ; 1                  ; 1                  ; 0                  ;
++--------------------+--------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------+
+; State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|direction   ;
++--------------+--------------+--------------+--------------+--------------+
+; Name         ; direction.11 ; direction.10 ; direction.01 ; direction.00 ;
++--------------+--------------+--------------+--------------+--------------+
+; direction.00 ; 0            ; 0            ; 0            ; 0            ;
+; direction.01 ; 0            ; 0            ; 1            ; 1            ;
+; direction.10 ; 0            ; 1            ; 0            ; 1            ;
+; direction.11 ; 1            ; 0            ; 0            ; 1            ;
++--------------+--------------+--------------+--------------+--------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|state                                        ;
++-------------+------------+------------+-------------+-------------+-------------+------------+------------+
+; Name        ; state.rest ; state.hold ; state.algo3 ; state.algo2 ; state.algo1 ; state.algo ; state.IDLE ;
++-------------+------------+------------+-------------+-------------+-------------+------------+------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ;
+; state.algo  ; 0          ; 0          ; 0           ; 0           ; 0           ; 1          ; 1          ;
+; state.algo1 ; 0          ; 0          ; 0           ; 0           ; 1           ; 0          ; 1          ;
+; state.algo2 ; 0          ; 0          ; 0           ; 1           ; 0           ; 0          ; 1          ;
+; state.algo3 ; 0          ; 0          ; 1           ; 0           ; 0           ; 0          ; 1          ;
+; state.hold  ; 0          ; 1          ; 0           ; 0           ; 0           ; 0          ; 1          ;
+; state.rest  ; 1          ; 0          ; 0           ; 0           ; 0           ; 0          ; 1          ;
++-------------+------------+------------+-------------+-------------+-------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                             ;
++-----------------------------------------------------+----------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                       ;
++-----------------------------------------------------+----------------------------------------------------------+
+; SM_1153_path_planning:inst15|visited[36][0]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[36][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[35][0]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[35][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[34][0]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[34][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[33][0]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[33][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[32][0]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[32][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[35][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[35][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[35][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[35][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[34][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[34][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[34][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[34][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[33][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[33][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[33][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[33][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[32][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[32][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[32][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[32][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][5]        ; Merged with SM_1153_path_planning:inst15|distance[36][3] ;
+; SM_1153_path_planning:inst15|distance[35][5]        ; Merged with SM_1153_path_planning:inst15|distance[35][3] ;
+; SM_1153_path_planning:inst15|distance[34][5]        ; Merged with SM_1153_path_planning:inst15|distance[34][3] ;
+; SM_1153_path_planning:inst15|distance[33][5]        ; Merged with SM_1153_path_planning:inst15|distance[33][3] ;
+; SM_1153_path_planning:inst15|distance[32][5]        ; Merged with SM_1153_path_planning:inst15|distance[32][3] ;
+; SM_1153_robot_control:inst20|error[4..7]            ; Merged with SM_1153_robot_control:inst20|error[2]        ;
+; SM_1153_robot_control:inst20|motor_a1[5,7]          ; Merged with SM_1153_robot_control:inst20|motor_a1[2]     ;
+; SM_1153_robot_control:inst20|motor_b1[2,5,7]        ; Merged with SM_1153_robot_control:inst20|motor_a1[2]     ;
+; SM_1153_robot_control:inst20|motor_a1[3,4,6]        ; Merged with SM_1153_robot_control:inst20|motor_a1[1]     ;
+; SM_1153_robot_control:inst20|motor_b1[3,4,6]        ; Merged with SM_1153_robot_control:inst20|motor_b1[1]     ;
+; SM_1153_robot_control:inst20|count_hold[4,5]        ; Merged with SM_1153_robot_control:inst20|count_hold[3]   ;
+; SM_1153_robot_control:inst20|count_hold[2]          ; Merged with SM_1153_robot_control:inst20|count_hold[1]   ;
+; SM_1153_PWM_Generator:inst17|counter[12]            ; Merged with SM_1153_PWM_Generator:inst16|counter[12]     ;
+; SM_1153_PWM_Generator:inst18|counter[12]            ; Merged with SM_1153_PWM_Generator:inst16|counter[12]     ;
+; SM_1153_PWM_Generator:inst19|counter[12]            ; Merged with SM_1153_PWM_Generator:inst16|counter[12]     ;
+; SM_1153_PWM_Generator:inst17|counter[11]            ; Merged with SM_1153_PWM_Generator:inst16|counter[11]     ;
+; SM_1153_PWM_Generator:inst18|counter[11]            ; Merged with SM_1153_PWM_Generator:inst16|counter[11]     ;
+; SM_1153_PWM_Generator:inst19|counter[11]            ; Merged with SM_1153_PWM_Generator:inst16|counter[11]     ;
+; SM_1153_PWM_Generator:inst17|counter[10]            ; Merged with SM_1153_PWM_Generator:inst16|counter[10]     ;
+; SM_1153_PWM_Generator:inst18|counter[10]            ; Merged with SM_1153_PWM_Generator:inst16|counter[10]     ;
+; SM_1153_PWM_Generator:inst19|counter[10]            ; Merged with SM_1153_PWM_Generator:inst16|counter[10]     ;
+; SM_1153_PWM_Generator:inst17|counter[9]             ; Merged with SM_1153_PWM_Generator:inst16|counter[9]      ;
+; SM_1153_PWM_Generator:inst18|counter[9]             ; Merged with SM_1153_PWM_Generator:inst16|counter[9]      ;
+; SM_1153_PWM_Generator:inst19|counter[9]             ; Merged with SM_1153_PWM_Generator:inst16|counter[9]      ;
+; SM_1153_PWM_Generator:inst17|counter[8]             ; Merged with SM_1153_PWM_Generator:inst16|counter[8]      ;
+; SM_1153_PWM_Generator:inst18|counter[8]             ; Merged with SM_1153_PWM_Generator:inst16|counter[8]      ;
+; SM_1153_PWM_Generator:inst19|counter[8]             ; Merged with SM_1153_PWM_Generator:inst16|counter[8]      ;
+; SM_1153_PWM_Generator:inst17|counter[7]             ; Merged with SM_1153_PWM_Generator:inst16|counter[7]      ;
+; SM_1153_PWM_Generator:inst18|counter[7]             ; Merged with SM_1153_PWM_Generator:inst16|counter[7]      ;
+; SM_1153_PWM_Generator:inst19|counter[7]             ; Merged with SM_1153_PWM_Generator:inst16|counter[7]      ;
+; SM_1153_PWM_Generator:inst17|counter[6]             ; Merged with SM_1153_PWM_Generator:inst16|counter[6]      ;
+; SM_1153_PWM_Generator:inst18|counter[6]             ; Merged with SM_1153_PWM_Generator:inst16|counter[6]      ;
+; SM_1153_PWM_Generator:inst19|counter[6]             ; Merged with SM_1153_PWM_Generator:inst16|counter[6]      ;
+; SM_1153_PWM_Generator:inst17|counter[5]             ; Merged with SM_1153_PWM_Generator:inst16|counter[5]      ;
+; SM_1153_PWM_Generator:inst18|counter[5]             ; Merged with SM_1153_PWM_Generator:inst16|counter[5]      ;
+; SM_1153_PWM_Generator:inst19|counter[5]             ; Merged with SM_1153_PWM_Generator:inst16|counter[5]      ;
+; SM_1153_PWM_Generator:inst17|counter[4]             ; Merged with SM_1153_PWM_Generator:inst16|counter[4]      ;
+; SM_1153_PWM_Generator:inst18|counter[4]             ; Merged with SM_1153_PWM_Generator:inst16|counter[4]      ;
+; SM_1153_PWM_Generator:inst19|counter[4]             ; Merged with SM_1153_PWM_Generator:inst16|counter[4]      ;
+; SM_1153_PWM_Generator:inst17|counter[3]             ; Merged with SM_1153_PWM_Generator:inst16|counter[3]      ;
+; SM_1153_PWM_Generator:inst18|counter[3]             ; Merged with SM_1153_PWM_Generator:inst16|counter[3]      ;
+; SM_1153_PWM_Generator:inst19|counter[3]             ; Merged with SM_1153_PWM_Generator:inst16|counter[3]      ;
+; SM_1153_PWM_Generator:inst17|counter[2]             ; Merged with SM_1153_PWM_Generator:inst16|counter[2]      ;
+; SM_1153_PWM_Generator:inst18|counter[2]             ; Merged with SM_1153_PWM_Generator:inst16|counter[2]      ;
+; SM_1153_PWM_Generator:inst19|counter[2]             ; Merged with SM_1153_PWM_Generator:inst16|counter[2]      ;
+; SM_1153_PWM_Generator:inst17|counter[1]             ; Merged with SM_1153_PWM_Generator:inst16|counter[1]      ;
+; SM_1153_PWM_Generator:inst18|counter[1]             ; Merged with SM_1153_PWM_Generator:inst16|counter[1]      ;
+; SM_1153_PWM_Generator:inst19|counter[1]             ; Merged with SM_1153_PWM_Generator:inst16|counter[1]      ;
+; SM_1153_PWM_Generator:inst17|counter[0]             ; Merged with SM_1153_PWM_Generator:inst16|counter[0]      ;
+; SM_1153_PWM_Generator:inst18|counter[0]             ; Merged with SM_1153_PWM_Generator:inst16|counter[0]      ;
+; SM_1153_PWM_Generator:inst19|counter[0]             ; Merged with SM_1153_PWM_Generator:inst16|counter[0]      ;
+; SM_1153_robot_control:inst20|p[4..7]                ; Merged with SM_1153_robot_control:inst20|p[2]            ;
+; SM_1153_robot_control:inst20|previous_error[2,4..7] ; Merged with SM_1153_robot_control:inst20|p[2]            ;
+; SM_1153_robot_control:inst20|previous_error[3]      ; Merged with SM_1153_robot_control:inst20|p[3]            ;
+; SM_1153_robot_control:inst20|previous_error[1]      ; Merged with SM_1153_robot_control:inst20|p[1]            ;
+; SM_1153_robot_control:inst20|previous_error[0]      ; Merged with SM_1153_robot_control:inst20|p[0]            ;
+; SM_1153_robot_control:inst20|count_hold[3]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][0]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][1]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][4]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[28][5]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[28][0]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[28][1]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[28][2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[28][4]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[28][5]        ; Merged with SM_1153_path_planning:inst15|distance[28][3] ;
+; SM_1153_robot_control:inst20|d[6,7]                 ; Merged with SM_1153_robot_control:inst20|d[5]            ;
+; SM_1153_robot_control:inst20|i[0..7]                ; Lost fanout                                              ;
+; SM_1153_adc_control:inst|d_out_ch5_temp[0,1]        ; Lost fanout                                              ;
+; SM_1153_adc_control:inst|d_out_ch6_temp[0,1]        ; Lost fanout                                              ;
+; SM_1153_adc_control:inst|d_out_ch7_temp[0,1]        ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|end_node[0,5]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|start_node[0,5]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[32][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[33][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[34][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[35][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|distance[36][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_robot_control:inst20|motor_a1[2]            ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[0][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[1][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[2][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[3][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[4][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[5][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[6][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[7][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[8][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[9][1]          ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[10][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[11][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[12][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[13][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[14][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[15][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[16][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[17][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[18][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[19][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[20][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[21][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[22][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[23][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[24][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[25][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[26][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[27][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[28][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[29][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[30][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|visited[31][1]         ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_robot_control:inst20|count_states[2]        ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[24][3]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[30][3]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[20][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[22][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[24][2]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[30][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[20][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[22][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[24][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[30][1]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[20][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[22][1]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[24][0]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[30][0]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[20][0]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[22][0]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[25][3]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[27][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[19][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[21][3]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[23][3]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[25][2]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[27][2]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[19][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[21][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[23][2]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[25][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[27][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[19][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[21][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[23][1]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[25][0]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[27][0]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[19][0]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[21][0]       ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|path_temp[23][0]       ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_uart:inst12|r_data_bits[7]                  ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_path_planning:inst15|end_node[1]            ; Merged with SM_1153_path_planning:inst15|end_node[3]     ;
+; SM_1153_path_planning:inst15|start_node[1]          ; Merged with SM_1153_path_planning:inst15|start_node[3]   ;
+; SM_1153_uart:inst12|r_state~2                       ; Lost fanout                                              ;
+; SM_1153_uart:inst12|r_state~3                       ; Lost fanout                                              ;
+; SM_1153_uart:inst12|r_state~4                       ; Lost fanout                                              ;
+; SM_1153_node_detection:inst13|current_state~7       ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|direction~2            ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|direction~3            ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|state~9                ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|state~10               ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|state~11               ; Lost fanout                                              ;
+; SM_1153_path_planning:inst15|distance[28][3]        ; Stuck at VCC due to stuck port data_in                   ;
+; SM_1153_colour_detection:inst7|temp[3]              ; Stuck at GND due to stuck port data_in                   ;
+; SM_1153_node_detection:inst13|count_state[3]        ; Stuck at GND due to stuck port data_in                   ;
+; Total Number of Removed Registers = 226             ;                                                          ;
++-----------------------------------------------------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                               ;
++----------------------------------------------+---------------------------+------------------------------------------------+
+; Register name                                ; Reason for Removal        ; Registers Removed due to This Register         ;
++----------------------------------------------+---------------------------+------------------------------------------------+
+; SM_1153_path_planning:inst15|distance[28][4] ; Stuck at GND              ; SM_1153_path_planning:inst15|path_temp[24][3], ;
+;                                              ; due to stuck port data_in ; SM_1153_path_planning:inst15|path_temp[30][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[20][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[22][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[24][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[30][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[20][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[22][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[24][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[30][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[20][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[22][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[24][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[30][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[20][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[22][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[25][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[27][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[19][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[21][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[23][3], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[25][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[27][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[19][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[21][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[23][2], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[25][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[27][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[19][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[21][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[23][1], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[25][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[27][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[19][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[21][0], ;
+;                                              ;                           ; SM_1153_path_planning:inst15|path_temp[23][0]  ;
+; SM_1153_path_planning:inst15|end_node[5]     ; Stuck at GND              ; SM_1153_path_planning:inst15|start_node[5],    ;
+;                                              ; due to stuck port data_in ; SM_1153_path_planning:inst15|distance[32][3],  ;
+;                                              ;                           ; SM_1153_path_planning:inst15|distance[33][3],  ;
+;                                              ;                           ; SM_1153_path_planning:inst15|distance[34][3],  ;
+;                                              ;                           ; SM_1153_path_planning:inst15|distance[35][3],  ;
+;                                              ;                           ; SM_1153_path_planning:inst15|distance[36][3]   ;
+; SM_1153_robot_control:inst20|count_hold[3]   ; Stuck at GND              ; SM_1153_robot_control:inst20|motor_a1[2]       ;
+;                                              ; due to stuck port data_in ;                                                ;
+; SM_1153_path_planning:inst15|end_node[0]     ; Stuck at GND              ; SM_1153_path_planning:inst15|start_node[0]     ;
+;                                              ; due to stuck port data_in ;                                                ;
++----------------------------------------------+---------------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1049  ;
+; Number of registers using Synchronous Clear  ; 222   ;
+; Number of registers using Synchronous Load   ; 96    ;
+; Number of registers using Asynchronous Clear ; 48    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 693   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; SM_1153_adc_control:inst|addr[0]           ; 6       ;
+; SM_1153_robot_control:inst20|count_hold[0] ; 1       ;
+; SM_1153_colour_detection:inst7|temp[0]     ; 11      ;
+; SM_1153_uart:inst12|count_colors[0]        ; 8       ;
+; SM_1153_colour_detection:inst7|counter[0]  ; 3       ;
+; SM_1153_path_planning:inst15|path[10][0]   ; 2       ;
+; SM_1153_path_planning:inst15|path[9][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[8][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[11][0]   ; 2       ;
+; SM_1153_path_planning:inst15|path[5][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[6][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[4][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[7][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[2][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[1][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[0][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[3][0]    ; 2       ;
+; SM_1153_path_planning:inst15|path[12][0]   ; 2       ;
+; SM_1153_path_planning:inst15|path[6][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[5][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[4][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[7][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[9][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[10][1]   ; 2       ;
+; SM_1153_path_planning:inst15|path[8][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[11][1]   ; 2       ;
+; SM_1153_path_planning:inst15|path[1][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[2][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[0][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[3][1]    ; 2       ;
+; SM_1153_path_planning:inst15|path[12][1]   ; 2       ;
+; SM_1153_path_planning:inst15|path[10][2]   ; 2       ;
+; SM_1153_path_planning:inst15|path[9][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[8][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[11][2]   ; 2       ;
+; SM_1153_path_planning:inst15|path[5][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[6][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[4][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[7][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[2][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[1][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[0][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[3][2]    ; 2       ;
+; SM_1153_path_planning:inst15|path[12][2]   ; 2       ;
+; SM_1153_path_planning:inst15|path[10][4]   ; 2       ;
+; SM_1153_path_planning:inst15|path[9][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[8][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[11][4]   ; 2       ;
+; SM_1153_path_planning:inst15|path[5][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[6][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[4][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[7][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[2][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[1][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[0][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[3][4]    ; 2       ;
+; SM_1153_path_planning:inst15|path[12][4]   ; 2       ;
+; SM_1153_path_planning:inst15|path[6][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[5][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[4][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[7][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[9][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[10][3]   ; 2       ;
+; SM_1153_path_planning:inst15|path[8][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[11][3]   ; 2       ;
+; SM_1153_path_planning:inst15|path[1][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[2][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[0][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[3][3]    ; 2       ;
+; SM_1153_path_planning:inst15|path[12][3]   ; 2       ;
+; SM_1153_path_planning:inst15|path[6][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[5][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[4][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[7][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[9][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[10][5]   ; 1       ;
+; SM_1153_path_planning:inst15|path[8][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[11][5]   ; 1       ;
+; SM_1153_path_planning:inst15|path[1][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[2][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[0][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[3][5]    ; 1       ;
+; SM_1153_path_planning:inst15|path[12][5]   ; 1       ;
+; SM_1153_path_planning:inst15|end_node[4]   ; 21      ;
+; SM_1153_path_planning:inst15|i[2]          ; 2       ;
+; SM_1153_path_planning:inst15|i[3]          ; 2       ;
+; SM_1153_path_planning:inst15|i[0]          ; 1       ;
+; Total number of inverted registers = 87    ;         ;
++--------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[1][3]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[4][2]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[5][2]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[7][1]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[8][5]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[11][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[13][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[14][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[26][2] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_node_detection:inst13|count_delay[10] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|node_detected    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_commands:inst14|right_temp            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|count_colors[2]           ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[0][1]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[3][5]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[6][2]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[9][0]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[10][1] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[15][4] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[16][4] ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|error[2]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_colour_detection:inst7|detected_temp  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[2][0]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[12][5]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[17][5]  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path_temp[18][4] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[19][5]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[20][5]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[21][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[22][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[23][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[24][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[25][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[27][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[29][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[30][3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[31][3]  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|next[2]                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_colour_detection:inst7|s3_1           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[1][5]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[4][5]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[5][5]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[7][3]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[8][5]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[11][5]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[13][5]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[14][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[26][3]  ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 32 LEs               ; 192 LEs                ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|count_delay[3]   ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|r_bit_index[1]            ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 32 LEs               ; 192 LEs                ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|count_delay1[27] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[0][5]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[3][3]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[6][3]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[9][3]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[10][3]  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[15][5]  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[16][5]  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[2][5]   ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance[18][3]  ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|r_clock_count[0]          ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|motor_a1[2]      ;
+; 15:1               ; 14 bits   ; 140 LEs       ; 56 LEs               ; 84 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_robot_control:inst20|motor_b[7]       ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 12 LEs               ; 10 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|r_data_bits[1]            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|r_data_bits[4]            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_uart:inst12|r_data_bits[2]            ;
+; 46:1               ; 2 bits    ; 60 LEs        ; 16 LEs               ; 44 LEs                 ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|minVertex[4]     ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[11][4]      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[12][1]      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[0][0]       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[0][3]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[1][5]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[2][1]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[3][1]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[4][0]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[5][4]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[6][4]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[7][0]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[8][4]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[9][5]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|path[10][0]      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |SM_1153_task_5|SM_1153_path_planning:inst15|i[3]             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_uart:inst12|r_data_bits               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux51            ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux145           ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux153           ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux182           ;
+; 16:1               ; 6 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux63            ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|distance         ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 80 LEs               ; 4 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux6             ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux2             ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 80 LEs               ; 4 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux12            ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux1             ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 80 LEs               ; 4 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux26            ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux20            ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 80 LEs               ; 4 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux41            ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux40            ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux79            ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux82            ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux91            ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux95            ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux104           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux108           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux111           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux118           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux128           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux130           ;
+; 37:1               ; 6 bits    ; 144 LEs       ; 126 LEs              ; 18 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|Mux69            ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 32 LEs               ; 4 LEs                  ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|direction        ;
+; 50:1               ; 2 bits    ; 66 LEs        ; 56 LEs               ; 10 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|t                ;
+; 50:1               ; 4 bits    ; 132 LEs       ; 120 LEs              ; 12 LEs                 ; No         ; |SM_1153_task_5|SM_1153_path_planning:inst15|t                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_adc_control:inst ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; DIVISOR        ; 20    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_robot_control:inst20 ;
++----------------+--------+-------------------------------------------------+
+; Parameter Name ; Value  ; Type                                            ;
++----------------+--------+-------------------------------------------------+
+; thres_lower    ; 300    ; Signed Integer                                  ;
+; thres_upper    ; 2500   ; Signed Integer                                  ;
+; IDLE           ; 000    ; Unsigned Binary                                 ;
+; PID            ; 001    ; Unsigned Binary                                 ;
+; hold           ; 010    ; Unsigned Binary                                 ;
+; stop           ; 011    ; Unsigned Binary                                 ;
+; adjust         ; 100    ; Unsigned Binary                                 ;
+; delay1         ; 100000 ; Signed Integer                                  ;
+; delay          ; 5000   ; Signed Integer                                  ;
+; delay_stop     ; 10     ; Signed Integer                                  ;
++----------------+--------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_path_planning:inst15 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n              ; 36    ; Signed Integer                                   ;
+; m              ; 6     ; Signed Integer                                   ;
+; infinity       ; 1000  ; Signed Integer                                   ;
+; IDLE           ; 000   ; Unsigned Binary                                  ;
+; algo           ; 001   ; Unsigned Binary                                  ;
+; algo1          ; 010   ; Unsigned Binary                                  ;
+; algo2          ; 011   ; Unsigned Binary                                  ;
+; algo3          ; 100   ; Unsigned Binary                                  ;
+; hold           ; 101   ; Unsigned Binary                                  ;
+; rest           ; 110   ; Unsigned Binary                                  ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_colour_detection:inst7 ;
++----------------+--------+---------------------------------------------------+
+; Parameter Name ; Value  ; Type                                              ;
++----------------+--------+---------------------------------------------------+
+; delay          ; 100000 ; Signed Integer                                    ;
++----------------+--------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_node_detection:inst13 ;
++----------------+--------+--------------------------------------------------+
+; Parameter Name ; Value  ; Type                                             ;
++----------------+--------+--------------------------------------------------+
+; IDLE           ; 00     ; Unsigned Binary                                  ;
+; node           ; 01     ; Unsigned Binary                                  ;
+; rest           ; 10     ; Unsigned Binary                                  ;
+; delay          ; 100000 ; Signed Integer                                   ;
++----------------+--------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst17 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; DIVISOR        ; 100   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst18 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; DIVISOR        ; 100   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst19 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; DIVISOR        ; 100   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_PWM_Generator:inst16 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; DIVISOR        ; 100   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SM_1153_uart:inst12 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; IDLE           ; 000   ; Unsigned Binary                         ;
+; tx_start_bit   ; 001   ; Unsigned Binary                         ;
+; tx_data_bit    ; 011   ; Unsigned Binary                         ;
+; tx_stop_bit    ; 100   ; Unsigned Binary                         ;
+; cleanup        ; 101   ; Unsigned Binary                         ;
+; rest           ; 110   ; Unsigned Binary                         ;
+; clks_per_bit   ; 434   ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: SM_1153_robot_control:inst20|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+------------------------------+
+; Parameter Name                                 ; Value        ; Type                         ;
++------------------------------------------------+--------------+------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                   ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                 ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                 ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE               ;
+; LPM_WIDTHA                                     ; 4            ; Untyped                      ;
+; LPM_WIDTHB                                     ; 5            ; Untyped                      ;
+; LPM_WIDTHP                                     ; 9            ; Untyped                      ;
+; LPM_WIDTHR                                     ; 9            ; Untyped                      ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                      ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                      ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                      ;
+; LATENCY                                        ; 0            ; Untyped                      ;
+; INPUT_A_IS_CONSTANT                            ; YES          ; Untyped                      ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                      ;
+; USE_EAB                                        ; OFF          ; Untyped                      ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                      ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                      ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                      ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K          ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                      ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                      ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                      ;
+; CBXI_PARAMETER                                 ; NOTHING      ; Untyped                      ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                      ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                      ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                      ;
++------------------------------------------------+--------------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                      ;
++---------------------------------------+---------------------------------------------+
+; Name                                  ; Value                                       ;
++---------------------------------------+---------------------------------------------+
+; Number of entity instances            ; 1                                           ;
+; Entity Instance                       ; SM_1153_robot_control:inst20|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 4                                           ;
+;     -- LPM_WIDTHB                     ; 5                                           ;
+;     -- LPM_WIDTHP                     ; 9                                           ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                          ;
+;     -- USE_EAB                        ; OFF                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                          ;
++---------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 37                          ;
+; cycloneiii_ff         ; 1049                        ;
+;     CLR               ; 3                           ;
+;     ENA               ; 481                         ;
+;     ENA CLR           ; 45                          ;
+;     ENA SCLR          ; 143                         ;
+;     ENA SLD           ; 24                          ;
+;     SCLR              ; 79                          ;
+;     SLD               ; 72                          ;
+;     plain             ; 202                         ;
+; cycloneiii_lcell_comb ; 4624                        ;
+;     arith             ; 616                         ;
+;         2 data inputs ; 393                         ;
+;         3 data inputs ; 223                         ;
+;     normal            ; 4008                        ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 33                          ;
+;         2 data inputs ; 312                         ;
+;         3 data inputs ; 539                         ;
+;         4 data inputs ; 3120                        ;
+;                       ;                             ;
+; Max LUT depth         ; 79.00                       ;
+; Average LUT depth     ; 29.97                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:37     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Mon Feb 14 19:47:46 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SM_1153_path_planning -c SM_1153_path_planning
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Warning (10463): Verilog HDL Declaration warning at SM_1153_path_planning.v(105): "dist" is SystemVerilog-2005 keyword File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 105
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_path_planning.v
+    Info (12023): Found entity 1: SM_1153_path_planning File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_robot_control.v
+    Info (12023): Found entity 1: SM_1153_robot_control File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_node_detection.v
+    Info (12023): Found entity 1: SM_1153_node_detection File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_adc_control.v
+    Info (12023): Found entity 1: SM_1153_adc_control File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_pwm_generator.v
+    Info (12023): Found entity 1: SM_1153_PWM_Generator File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_PWM_Generator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_colour_detection.v
+    Info (12023): Found entity 1: SM_1153_colour_detection File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_uart.v
+    Info (12023): Found entity 1: SM_1153_uart File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_uart.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_led_output.v
+    Info (12023): Found entity 1: SM_1153_led_output File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_led_output.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_commands.v
+    Info (12023): Found entity 1: SM_1153_commands File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_commands.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sm_1153_task_5.bdf
+    Info (12023): Found entity 1: SM_1153_task_5
+Warning (10236): Verilog HDL Implicit Net warning at SM_1153_path_planning.v(490): created implicit net for "node5" File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 490
+Info (12127): Elaborating entity "SM_1153_task_5" for the top level hierarchy
+Info (12128): Elaborating entity "SM_1153_adc_control" for hierarchy "SM_1153_adc_control:inst"
+Warning (10230): Verilog HDL assignment warning at SM_1153_adc_control.v(29): truncated value with size 32 to match size of target (1) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v Line: 29
+Warning (10230): Verilog HDL assignment warning at SM_1153_adc_control.v(43): truncated value with size 32 to match size of target (5) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v Line: 43
+Warning (10230): Verilog HDL assignment warning at SM_1153_adc_control.v(60): truncated value with size 32 to match size of target (2) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v Line: 60
+Warning (10230): Verilog HDL assignment warning at SM_1153_adc_control.v(89): truncated value with size 32 to match size of target (5) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_adc_control.v Line: 89
+Info (12128): Elaborating entity "SM_1153_robot_control" for hierarchy "SM_1153_robot_control:inst20"
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(32): truncated value with size 64 to match size of target (8) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 32
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(74): truncated value with size 32 to match size of target (8) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 74
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(85): truncated value with size 32 to match size of target (8) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 85
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(96): truncated value with size 32 to match size of target (8) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 96
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(140): truncated value with size 6 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 140
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(168): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 168
+Warning (10230): Verilog HDL assignment warning at SM_1153_robot_control.v(205): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 205
+Info (12128): Elaborating entity "SM_1153_commands" for hierarchy "SM_1153_commands:inst14"
+Info (12128): Elaborating entity "SM_1153_path_planning" for hierarchy "SM_1153_path_planning:inst15"
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(490): object "node5" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 490
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(17): object "color_detected" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(18): object "final_path" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 18
+Warning (10858): Verilog HDL warning at SM_1153_path_planning.v(19): object current_node used but never assigned File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 19
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(20): object "supply" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 20
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(22): object "temp2" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 22
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(23): object "counter_temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 23
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(28): object "temp1" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 28
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(29): object "reset_count_temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 29
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(106): object "count_reset" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 106
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(108): object "temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 108
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(116): object "left_temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 116
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(117): object "right_temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 117
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_path_planning.v(118): object "reverse_temp" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 118
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(52): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 52
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(55): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 55
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(56): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 56
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(57): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 57
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(58): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 58
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(59): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 59
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(60): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 60
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(61): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 61
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(62): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 62
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(63): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 63
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(65): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 65
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(66): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 66
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(67): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 67
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(68): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 68
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(69): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 69
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(71): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 71
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(72): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 72
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(73): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 73
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(74): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 74
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(75): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 75
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(76): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 76
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(77): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 77
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(78): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 78
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(79): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 79
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(80): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 80
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(81): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 81
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(82): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 82
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(83): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 83
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(84): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 84
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(85): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 85
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(86): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 86
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 87
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(88): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 88
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(89): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 89
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(90): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 90
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(91): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 91
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(135): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 135
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(139): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 139
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(149): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 149
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(153): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 153
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(155): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 155
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(156): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 156
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(162): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 162
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(163): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 163
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(165): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 165
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(167): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 167
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(168): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 168
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(194): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 194
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(199): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 199
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(216): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 216
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(228): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 228
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(232): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 232
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(241): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 241
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(248): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 248
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(254): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 254
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(264): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 264
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(267): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 267
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(281): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 281
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(285): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 285
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(289): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 289
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(293): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 293
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(297): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 297
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(301): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 301
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(305): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 305
+Warning (10027): Verilog HDL or VHDL warning at the SM_1153_path_planning.v(309): index expression is not wide enough to address all of the elements in the array File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 309
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(481): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 481
+Warning (10230): Verilog HDL assignment warning at SM_1153_path_planning.v(490): truncated value with size 6 to match size of target (1) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 490
+Warning (10030): Net "path_temp[32..36]" at SM_1153_path_planning.v(45) has no driver or initial value, using a default initial value '0' File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 45
+Warning (10030): Net "target_nodes.data_a" at SM_1153_path_planning.v(48) has no driver or initial value, using a default initial value '0' File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 48
+Warning (10030): Net "target_nodes.waddr_a" at SM_1153_path_planning.v(48) has no driver or initial value, using a default initial value '0' File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 48
+Warning (10030): Net "target_nodes.we_a" at SM_1153_path_planning.v(48) has no driver or initial value, using a default initial value '0' File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 48
+Warning (10034): Output port "node2" at SM_1153_path_planning.v(5) has no driver File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 5
+Warning (10034): Output port "current_node_temp" at SM_1153_path_planning.v(8) has no driver File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 8
+Warning (10034): Output port "node7" at SM_1153_path_planning.v(10) has no driver File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 10
+Warning (10034): Output port "hold_state" at SM_1153_path_planning.v(6) has no driver File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 6
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "graph" into its bus
+Info (12128): Elaborating entity "SM_1153_colour_detection" for hierarchy "SM_1153_colour_detection:inst7"
+Warning (10230): Verilog HDL assignment warning at SM_1153_colour_detection.v(50): truncated value with size 32 to match size of target (4) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v Line: 50
+Warning (10230): Verilog HDL assignment warning at SM_1153_colour_detection.v(100): truncated value with size 32 to match size of target (16) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v Line: 100
+Warning (10230): Verilog HDL assignment warning at SM_1153_colour_detection.v(104): truncated value with size 32 to match size of target (16) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v Line: 104
+Warning (10230): Verilog HDL assignment warning at SM_1153_colour_detection.v(107): truncated value with size 32 to match size of target (16) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_colour_detection.v Line: 107
+Info (12128): Elaborating entity "SM_1153_node_detection" for hierarchy "SM_1153_node_detection:inst13"
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_node_detection.v(13): object "left" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 13
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_node_detection.v(14): object "right" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 14
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_node_detection.v(15): object "reverse" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 15
+Warning (10230): Verilog HDL assignment warning at SM_1153_node_detection.v(51): truncated value with size 32 to match size of target (1) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 51
+Warning (10230): Verilog HDL assignment warning at SM_1153_node_detection.v(52): truncated value with size 32 to match size of target (6) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 52
+Warning (10230): Verilog HDL assignment warning at SM_1153_node_detection.v(69): truncated value with size 32 to match size of target (4) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_node_detection.v Line: 69
+Info (12128): Elaborating entity "SM_1153_PWM_Generator" for hierarchy "SM_1153_PWM_Generator:inst17"
+Warning (10036): Verilog HDL or VHDL warning at SM_1153_PWM_Generator.v(15): object "counter_1" assigned a value but never read File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_PWM_Generator.v Line: 15
+Warning (10230): Verilog HDL assignment warning at SM_1153_PWM_Generator.v(21): truncated value with size 32 to match size of target (1) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_PWM_Generator.v Line: 21
+Warning (10230): Verilog HDL assignment warning at SM_1153_PWM_Generator.v(38): truncated value with size 32 to match size of target (13) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_PWM_Generator.v Line: 38
+Info (12128): Elaborating entity "SM_1153_uart" for hierarchy "SM_1153_uart:inst12"
+Warning (10230): Verilog HDL assignment warning at SM_1153_uart.v(138): truncated value with size 32 to match size of target (1) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_uart.v Line: 138
+Warning (10230): Verilog HDL assignment warning at SM_1153_uart.v(139): truncated value with size 32 to match size of target (3) File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_uart.v Line: 139
+Info (12128): Elaborating entity "SM_1153_led_output" for hierarchy "SM_1153_led_output:inst9"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "SM_1153_path_planning:inst15|target_nodes" is uninferred due to inappropriate RAM size File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 48
+Critical Warning (127005): Memory depth (8) in the design file differs from memory depth (6) in the Memory Initialization File "C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/db/SM_1153_path_planning.ram0_SM_1153_path_planning_5db50032.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/db/SM_1153_path_planning.ram0_SM_1153_path_planning_5db50032.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "SM_1153_robot_control:inst20|Mult0" File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 152
+Info (12130): Elaborated megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0" File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 152
+Info (12133): Instantiated megafunction "SM_1153_robot_control:inst20|lpm_mult:Mult0" with the following parameter: File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_robot_control.v Line: 152
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "5"
+    Info (12134): Parameter "LPM_WIDTHP" = "9"
+    Info (12134): Parameter "LPM_WIDTHR" = "9"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
+Info (12131): Elaborated megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
+Info (12131): Elaborated megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 115
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_1jh.tdf
+    Info (12023): Found entity 1: add_sub_1jh File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/db/add_sub_1jh.tdf Line: 23
+Info (12131): Elaborated megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "SM_1153_robot_control:inst20|lpm_mult:Mult0" File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "adc_cs_n" is stuck at GND
+    Warning (13410): Pin "s0" is stuck at VCC
+    Warning (13410): Pin "s1" is stuck at VCC
+    Warning (13410): Pin "red2" is stuck at GND
+    Warning (13410): Pin "green2" is stuck at GND
+    Warning (13410): Pin "red3" is stuck at GND
+    Warning (13410): Pin "blue3" is stuck at GND
+    Warning (13410): Pin "green1" is stuck at GND
+    Warning (13410): Pin "blue1" is stuck at GND
+    Warning (13410): Pin "node2[2]" is stuck at GND
+    Warning (13410): Pin "node2[1]" is stuck at GND
+    Warning (13410): Pin "node2[0]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 23 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/output_files/SM_1153_path_planning.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 4946 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 4909 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 133 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Mon Feb 14 19:48:48 2022
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:01:24
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/output_files/SM_1153_path_planning.map.smsg.
+
+

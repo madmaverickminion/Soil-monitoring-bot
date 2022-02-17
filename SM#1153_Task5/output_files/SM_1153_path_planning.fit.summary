@@ -1,0 +1,10 @@
+I/O Assignment Analysis Status : Successful - Mon Feb 14 20:16:47 2022
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : SM_1153_path_planning
+Top-level Entity Name : SM_1153_task_5
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total pins : 37 / 154 ( 24 % )
+Total virtual pins : 0
+Total PLLs : 0 / 4 ( 0 % )

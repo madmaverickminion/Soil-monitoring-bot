@@ -1,0 +1,32 @@
+
+State Machine - |SM_1153_task_5|SM_1153_uart:inst12|r_state
+Name r_state.rest r_state.cleanup r_state.tx_stop_bit r_state.tx_data_bit r_state.tx_start_bit r_state.IDLE 
+r_state.IDLE 0 0 0 0 0 0 
+r_state.tx_start_bit 0 0 0 0 1 1 
+r_state.tx_data_bit 0 0 0 1 0 1 
+r_state.tx_stop_bit 0 0 1 0 0 1 
+r_state.cleanup 0 1 0 0 0 1 
+r_state.rest 1 0 0 0 0 1 
+
+State Machine - |SM_1153_task_5|SM_1153_node_detection:inst13|current_state
+Name current_state.IDLE current_state.rest current_state.node 
+current_state.IDLE 0 0 0 
+current_state.node 1 0 1 
+current_state.rest 1 1 0 
+
+State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|direction
+Name direction.11 direction.10 direction.01 direction.00 
+direction.00 0 0 0 0 
+direction.01 0 0 1 1 
+direction.10 0 1 0 1 
+direction.11 1 0 0 1 
+
+State Machine - |SM_1153_task_5|SM_1153_path_planning:inst15|state
+Name state.rest state.hold state.algo3 state.algo2 state.algo1 state.algo state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.algo 0 0 0 0 0 1 1 
+state.algo1 0 0 0 0 1 0 1 
+state.algo2 0 0 0 1 0 0 1 
+state.algo3 0 0 1 0 0 0 1 
+state.hold 0 1 0 0 0 0 1 
+state.rest 1 0 0 0 0 0 1 

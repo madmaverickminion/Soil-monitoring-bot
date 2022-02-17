@@ -1,0 +1,36 @@
+-- begin_signature
+-- SM_1153_path_planning(n
+-- 36
+-- m
+-- 6
+-- infinity
+-- 1000
+-- IDLE
+-- 3'b000
+-- algo
+-- 3'b001
+-- algo1
+-- 3'b010
+-- algo2
+-- 3'b011
+-- algo3
+-- 3'b100
+-- hold
+-- 3'b101
+-- rest
+-- 3'b110)
+-- end_signature
+WIDTH=6;
+DEPTH=6;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	5 :	XXXXXX;
+	4 :	XXXXXX;
+	3 :	000000;
+	2 :	000000;
+	1 :	011010;
+	0 :	000100;
+END;

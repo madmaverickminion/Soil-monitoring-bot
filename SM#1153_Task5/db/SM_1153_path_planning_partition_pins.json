@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "din",
+					"strict" : false
+				},
+				{
+					"name" : "adc_sck",
+					"strict" : false
+				},
+				{
+					"name" : "d_input1",
+					"strict" : false
+				},
+				{
+					"name" : "d_input2",
+					"strict" : false
+				},
+				{
+					"name" : "d_input3",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT",
+					"strict" : false
+				},
+				{
+					"name" : "temp",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT7",
+					"strict" : false
+				},
+				{
+					"name" : "temp8",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT9",
+					"strict" : false
+				},
+				{
+					"name" : "temp10",
+					"strict" : false
+				},
+				{
+					"name" : "PWM_OUT11",
+					"strict" : false
+				},
+				{
+					"name" : "temp12",
+					"strict" : false
+				},
+				{
+					"name" : "node_detected_temp",
+					"strict" : false
+				},
+				{
+					"name" : "tx",
+					"strict" : false
+				},
+				{
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "s3",
+					"strict" : false
+				},
+				{
+					"name" : "blue2",
+					"strict" : false
+				},
+				{
+					"name" : "green3",
+					"strict" : false
+				},
+				{
+					"name" : "red1",
+					"strict" : false
+				},
+				{
+					"name" : "data_frame[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_frame[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "freq",
+					"strict" : false
+				},
+				{
+					"name" : "dout",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

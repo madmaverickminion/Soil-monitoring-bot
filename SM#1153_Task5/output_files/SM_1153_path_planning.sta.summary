@@ -1,0 +1,281 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50'
+Slack : -50.594
+TNS   : -11701.644
+
+Type  : Slow 1200mV 85C Model Setup 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -1.650
+TNS   : -19.356
+
+Type  : Slow 1200mV 85C Model Setup 'SM_1153_adc_control:inst|freq'
+Slack : -1.545
+TNS   : -70.894
+
+Type  : Slow 1200mV 85C Model Setup 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -1.536
+TNS   : -18.218
+
+Type  : Slow 1200mV 85C Model Setup 'freq'
+Slack : -1.531
+TNS   : -63.875
+
+Type  : Slow 1200mV 85C Model Setup 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -1.433
+TNS   : -17.078
+
+Type  : Slow 1200mV 85C Model Setup 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -1.412
+TNS   : -16.949
+
+Type  : Slow 1200mV 85C Model Hold 'SM_1153_adc_control:inst|freq'
+Slack : 0.357
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50'
+Slack : 0.357
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'freq'
+Slack : 0.358
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : 0.381
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : 0.393
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'freq'
+Slack : -0.709
+TNS   : -28.746
+
+Type  : Slow 1200mV 85C Model Removal 'freq'
+Slack : 0.942
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50'
+Slack : -3.000
+TNS   : -895.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'freq'
+Slack : -3.000
+TNS   : -51.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SM_1153_adc_control:inst|freq'
+Slack : -1.000
+TNS   : -57.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50'
+Slack : -45.926
+TNS   : -10490.472
+
+Type  : Slow 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -1.404
+TNS   : -16.368
+
+Type  : Slow 1200mV 0C Model Setup 'SM_1153_adc_control:inst|freq'
+Slack : -1.304
+TNS   : -58.631
+
+Type  : Slow 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -1.295
+TNS   : -15.270
+
+Type  : Slow 1200mV 0C Model Setup 'freq'
+Slack : -1.237
+TNS   : -53.034
+
+Type  : Slow 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -1.174
+TNS   : -14.320
+
+Type  : Slow 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -1.163
+TNS   : -14.186
+
+Type  : Slow 1200mV 0C Model Hold 'SM_1153_adc_control:inst|freq'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'freq'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : 0.346
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : 0.351
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'freq'
+Slack : -0.528
+TNS   : -20.741
+
+Type  : Slow 1200mV 0C Model Removal 'freq'
+Slack : 0.843
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : -3.000
+TNS   : -895.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'freq'
+Slack : -3.000
+TNS   : -51.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SM_1153_adc_control:inst|freq'
+Slack : -1.000
+TNS   : -57.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50'
+Slack : -29.360
+TNS   : -6503.451
+
+Type  : Fast 1200mV 0C Model Setup 'freq'
+Slack : -0.442
+TNS   : -15.436
+
+Type  : Fast 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -0.435
+TNS   : -4.521
+
+Type  : Fast 1200mV 0C Model Setup 'SM_1153_adc_control:inst|freq'
+Slack : -0.424
+TNS   : -15.432
+
+Type  : Fast 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -0.382
+TNS   : -4.021
+
+Type  : Fast 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -0.363
+TNS   : -3.348
+
+Type  : Fast 1200mV 0C Model Setup 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -0.350
+TNS   : -3.299
+
+Type  : Fast 1200mV 0C Model Hold 'SM_1153_adc_control:inst|freq'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'freq'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : 0.203
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : 0.208
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'freq'
+Slack : 0.007
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'freq'
+Slack : 0.501
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50'
+Slack : -3.000
+TNS   : -949.310
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'freq'
+Slack : -3.000
+TNS   : -53.815
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SM_1153_adc_control:inst|freq'
+Slack : -1.000
+TNS   : -57.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst16|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst17|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst18|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SM_1153_PWM_Generator:inst19|freq_1'
+Slack : -1.000
+TNS   : -13.000
+
+------------------------------------------------------------

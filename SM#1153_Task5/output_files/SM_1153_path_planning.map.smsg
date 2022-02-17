@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at SM_1153_path_planning.v(121): always construct contains both blocking and non-blocking assignments File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_path_planning.v Line: 121
+Warning (10268): Verilog HDL information at SM_1153_uart.v(50): always construct contains both blocking and non-blocking assignments File: C:/Users/Saksham/Desktop/SOIL_MONITORING/SM#1153_Task5/SM_1153_uart.v Line: 50

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Feb 14 19:48:47 2022
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : SM_1153_path_planning
+Top-level Entity Name : SM_1153_task_5
+Family : Cyclone IV E
+Total logic elements : 4,874
+    Total combinational functions : 4,622
+    Dedicated logic registers : 1,049
+Total registers : 1049
+Total pins : 37
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
