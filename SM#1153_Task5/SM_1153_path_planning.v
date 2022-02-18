@@ -10,19 +10,7 @@ output [5:0]node11,
 output [5:0]node10,
 input red ,
 input green,
-input blue,
-output [5:0]node9,
-output [5:0]node8,
-output [5:0]node7,
-output [5:0]node6,
-output [5:0]node5,
-output [5:0]node4,
-output [5:0]node3,
-output [5:0]node2,
-output [5:0]node1,
-output [5:0]node0,
-output [5:0]start_temp,
-output [5:0]end_temp
+input blue
 
 );
 ///
@@ -49,7 +37,7 @@ integer i=0;
 integer j=0;
 parameter n=36;
 parameter m=6;
-parameter infinity=1000;
+parameter infinity=63;
 reg signed [5:0]graph[0:n][0:7];
 reg signed [2:0]robo_command[0:12];
 //reg signed [5:0]path[0:3];
@@ -112,8 +100,8 @@ end
 
 //red-->01 // green-->10 // blue-->11
 //reg counter=0;
-reg [5:0]start_node=0;////////////////////////////////////
-reg [5:0]end_node=18;///////////////////////////////
+reg [5:0]start_node=1;////////////////////////////////////
+reg [5:0]end_node=5;///////////////////////////////
 integer t=0;
 
 reg [5:0]dist=0;
@@ -136,11 +124,14 @@ parameter inter4=4'b1100;
 parameter inter5=4'b1101;
 parameter inter6=4'b1110;
 parameter inter7=4'b1111;
+parameter inter8=5'b10000;
 reg left_temp=0;
 reg right_temp=0;
 reg reverse_temp=0;
 
-reg [3:0]state=IDLE;
+reg [4:0]state=IDLE;
+
+
 always@(posedge clk_50)begin
 case(state)
 IDLE:
@@ -149,8 +140,8 @@ IDLE:
 	reset<=0;
 	
 	for(i=0;i<=12;i=i+1)begin
-	robo_command[i]=0;
-	path[i]=-1;
+	robo_command[i]<=0;
+	path[i]<=-1;
 	end
 	
 	
@@ -158,7 +149,7 @@ IDLE:
 inter5:begin
 state<=algo;
 for(i=0;i<=n;i=i+1)begin
-	path_temp[i]=0;
+	path_temp[i]<=0;
 	end
 
 end
@@ -167,22 +158,27 @@ algo:
 //	reset=0;
 	state<=inter1;
 	for (i=0;i<=n;i=i+1)begin
-	distance[i]=infinity;
-	visited[i]=0;
+	distance[i]<=6'b111111;
+	visited[i]<=0;
 	end
 	
 end
 inter1:begin
 	distance[start_node]<=0;
-	minVertex<=-1;
-	state<=algo1;
+//	minVertex<=-1;
+	i<=0;
+	state<=inter6;
 	
-i<=0;
+
 end
 ///////////////////new state/////////////////////////
-algo1:
-	begin
+inter6:begin
+minVertex<=-1;
+state<=algo1;
+end
+algo1:begin
 state<=inter2;
+	
 	for(j=0;j<=n;j=j+1)begin
 		if(visited[j]==0)begin
 			if(minVertex==-1)begin
@@ -198,27 +194,32 @@ end
 inter2:begin
 visited[minVertex]<=1;
 state<=inter3;
+j<=0;
+
 end
 inter3:begin
 	state<=inter4;
 	for(j=0;j<=6;j=j+2)begin
-		if((graph[minVertex][j]!=-1) && (visited[graph[minVertex][j]]==0))begin
+		if(graph[minVertex][j]!=-1 && visited[graph[minVertex][j]]==0)begin
+		
 			
-			if((distance[minVertex]+graph[minVertex][j+1])<distance[graph[minVertex][j]])begin
-//				temp1=1;
-				distance[graph[minVertex][j]]=(distance[minVertex]+graph[minVertex][j+1]);
-				path_temp[graph[minVertex][j]]=minVertex;
+			if(distance[minVertex]+graph[minVertex][j+1]<distance[graph[minVertex][j]])begin
+				
+				distance[graph[minVertex][j]]<=distance[minVertex]+graph[minVertex][j+1];
+				path_temp[graph[minVertex][j]]<=minVertex;
 			end
 		end
 	end
 	
 end
+
+
 inter4:begin
-if(i<n)begin
+if(i<36)begin
 	i<=i+1;
 //	temp1=0;
-	minVertex<=-1;
-	state<=algo1;
+//	minVertex<=-1;
+	state<=inter7;
 end
 else begin
 	i<=0;
@@ -228,20 +229,23 @@ else begin
 end
 
 
+inter7:begin
+state<=inter6;
 
+end
 
 ///////////////////////////new state added////////////////////////////
 algo2:
 	begin
 
-state<=algo3;
+//state<=algo3;
 t=end_node;
 for(i=0;(i<=12)&&(t!=start_node);i=i+1)begin
 path[i]=t;
 t=path_temp[t];
 end
 
-path[i]<=t;
+path[i]=t;
 t=0;
 j=12;
 
@@ -480,17 +484,13 @@ end
 hold:
 	
 	begin
-//
-	if(robo_command[counter]==0/*||color_detected==1*/)begin
-	reset<=1;
-	state<=rest;
-	start_node<=end_node;
-	end
+////
+//	if(robo_command[counter]==0/*||color_detected==1*/)begin
+//	reset<=1;
+//	state<=rest;
+//	start_node<=end_node;
+//	end
 end
-	
-	
-	
-	
 ////////////////new state added/////////////////
 rest:
 	begin
@@ -523,8 +523,9 @@ assign node6=path[6];
 assign node7=path[7];
 assign node8=path[8];
 assign node9=path[9];
-assign node10=path[10];
-assign node11=path[11];
+assign node10=path_temp[10];
+assign node11=path_temp[11];
+
 assign start_temp=start_node;
 assign end_temp=end_node;
 assign robo_command_temp=robo_command[counter];
