@@ -10,11 +10,81 @@ output [5:0]node11,
 output [5:0]node10,
 input red ,
 input green,
-input blue
+input blue,
+output [5:0]node9,
+output [5:0]node8,
+output [5:0]node7,
+output [5:0]node6,
+output [5:0]node5,
+output [5:0]node4,
+output [5:0]node3,
+output [5:0]node2,
+output [5:0]node1,
+output [5:0]node0,
+output [5:0]node12,
+output [5:0]node13,
+output [5:0]node14,
+output [5:0]node15,
+output [5:0]node16,
+output [5:0]node17,
+output [5:0]node18,
+output [5:0]node19,
+output [5:0]node20,
+output [5:0]node21,
+output [5:0]node22,
+output [5:0]node23,
+output [5:0]node24,
+output [5:0]node25,
+output [5:0]node26,
+output [5:0]node27,
+output [5:0]node28,
+output [5:0]node29,
+output [5:0]node30,
+output [5:0]node31,
+output [5:0]node32,
+output [5:0]node33,
+output [5:0]node34,
+output [5:0]node35,
+output [5:0]node36,
+output [5:0]start_temp,
+output [5:0]end_temp,
+output sensor_off
 
 );
-///
+
+// clk;
+reg [7:0] counter_clk=8'b0;
+parameter DIVISOR=20;
+reg freq;
+
+always@(negedge clk_50)
+begin
+counter_clk<=counter_clk+8'd1;
+if(counter_clk>= (DIVISOR -1))
+counter_clk<= 8'd0;
+freq<= (counter_clk<DIVISOR/2)?0:1;
+end
+//assign clk=freq;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+reg swap=0;
+reg [5:0]temp_node;
 reg flag=0;
+reg sensor_off_temp=0;
 
 wire color_detected=red|green|blue;
 reg signed[5:0]final_path[0:12];
@@ -35,14 +105,16 @@ reg [0:8]x_coordinate[0:36];
 reg [0:8]y_coordinate[0:36];
 integer i=0;
 integer j=0;
-parameter n=36;
+parameter n=37;
+
 parameter m=6;
 parameter infinity=63;
-reg signed [5:0]graph[0:n][0:7];
+reg signed [9:0]graph[0:37][0:7];
 reg signed [2:0]robo_command[0:12];
+
 //reg signed [5:0]path[0:3];
 reg [1:0]visited[0:n];
-reg [5:0]distance[0:n];
+reg [9:0]distance[0:n];
 reg signed[5:0]path[0:12];
 reg [5:0]path_temp[0:n];
 
@@ -62,10 +134,10 @@ graph[4][0]=17;graph[4][1]=1;graph[4][2]=3;graph[4][3]=1;graph[4][4]=5;graph[4][
 graph[5][0]=4;graph[5][1]=1;graph[5][2]=26;graph[5][3]=1;graph[5][4]=6;graph[5][5]=1;graph[5][6]=-1;graph[5][7]=0;
 graph[6][0]=5;graph[6][1]=1;graph[6][2]=14;graph[6][3]=1;graph[6][4]=7;graph[6][5]=1;graph[6][6]=-1;graph[6][7]=0;
 graph[7][0]=6;graph[7][1]=1;graph[7][2]=27;graph[7][3]=1;graph[7][4]=8;graph[7][5]=1;graph[7][6]=-1;graph[7][7]=0;
-graph[8][0]=7;graph[8][1]=1;graph[8][2]=36;graph[8][3]=1;graph[8][4]=0;graph[8][5]=1;graph[8][6]=-1;graph[8][7]=0;
+graph[8][0]=7;graph[8][1]=1;graph[8][2]=36;graph[8][3]=1;graph[8][4]=0;graph[8][5]=1;graph[8][6]=37;graph[8][7]=6'b111111;
 graph[9][0]=0;graph[9][1]=1;graph[9][2]=30;graph[9][3]=1;graph[9][4]=10;graph[9][5]=1;graph[9][6]=29;graph[9][7]=1;
 graph[10][0]=11;graph[10][1]=1;graph[10][2]=9;graph[10][3]=1;graph[10][4]=32;graph[10][5]=1;graph[10][6]=31;graph[10][7]=1;
-graph[11][0]=12;graph[11][1]=1;graph[11][2]=10;graph[11][3]=1;graph[11][4]=33;graph[11][5]=1;graph[11][6]=34;graph[11][7]=1;
+graph[11][0]=34;graph[11][1]=1;graph[11][2]=10;graph[11][3]=1;graph[11][4]=33;graph[11][5]=1;graph[11][6]=12;graph[11][7]=1;
 graph[12][0]=13;graph[12][1]=1;graph[12][2]=11;graph[12][3]=1;graph[12][4]=35;graph[12][5]=1;graph[12][6]=-1;graph[12][7]=0;
 graph[13][0]=12;graph[13][1]=1;graph[13][2]=14;graph[13][3]=1;graph[13][4]=36;graph[13][5]=1;graph[13][6]=15;graph[13][7]=1;
 graph[14][0]=13;graph[14][1]=1;graph[14][2]=6;graph[14][3]=1;graph[14][4]=24;graph[14][5]=1;graph[14][6]=-1;graph[14][7]=0;
@@ -88,20 +160,21 @@ graph[30][0]=9;graph[30][1]=1;graph[30][2]=-1;graph[30][3]=0;graph[30][4]=-1;gra
 graph[31][0]=10;graph[31][1]=1;graph[31][2]=-1;graph[31][3]=0;graph[31][4]=-1;graph[31][5]=0;graph[31][6]=-1;graph[31][7]=0;
 graph[32][0]=10;graph[32][1]=1;graph[32][2]=-1;graph[32][3]=0;graph[32][4]=-1;graph[32][5]=0;graph[32][6]=-1;graph[32][7]=0;
 graph[33][0]=11;graph[33][1]=1;graph[33][2]=-1;graph[33][3]=0;graph[33][4]=-1;graph[33][5]=0;graph[33][6]=-1;graph[33][7]=0;
-graph[34][0]=11;graph[34][1]=1;graph[34][2]=-1;graph[34][3]=0;graph[34][4]=-1;graph[34][5]=0;graph[34][6]=-1;graph[34][7]=0;
+graph[34][0]=11;graph[34][1]=1;graph[34][2]=37;graph[34][3]=6'b111111;graph[34][4]=-1;graph[34][5]=0;graph[34][6]=-1;graph[34][7]=0;
 graph[35][0]=12;graph[35][1]=1;graph[35][2]=-1;graph[35][3]=0;graph[35][4]=-1;graph[35][5]=0;graph[35][6]=-1;graph[35][7]=0;
-graph[36][0]=28;graph[36][1]=1;graph[36][2]=13;graph[36][3]=1;graph[36][4]=8;graph[36][5]=1;graph[36][6]=-1;graph[36][7]=0;
-
+graph[36][0]=28;graph[36][1]=1;graph[36][2]=13;graph[36][3]=1;graph[36][4]=8;graph[36][5]=1;graph[36][6]=37;graph[36][7]=6'b111111;
+graph[37][0]=34;graph[37][1]=6'b111111;graph[37][2]=-1;graph[37][3]=0;graph[37][4]=-1;graph[37][5]=0;graph[37][6]=-1;graph[37][7]=0;
+////////////////////////////////////////////////
 x_coordinate[0]=55;y_coordinate[0]=130;x_coordinate[1]=55;y_coordinate[1]=145;x_coordinate[2]=55;y_coordinate[2]=155;x_coordinate[3]=35;y_coordinate[3]=170;x_coordinate[4]=20;y_coordinate[4]=170;x_coordinate[5]=0;y_coordinate[5]=150;x_coordinate[6]=0;y_coordinate[6]=130;x_coordinate[7]=0;y_coordinate[7]=120;x_coordinate[8]=20;y_coordinate[8]=115;x_coordinate[9]=45;y_coordinate[9]=130;x_coordinate[10]=40;y_coordinate[10]=130;x_coordinate[11]=30;y_coordinate[11]=130;x_coordinate[12]=25;y_coordinate[12]=130;x_coordinate[13]=20;y_coordinate[13]=130;x_coordinate[14]=10;y_coordinate[14]=130;x_coordinate[15]=20;y_coordinate[15]=145;x_coordinate[16]=20;y_coordinate[16]=150;x_coordinate[17]=20;y_coordinate[17]=160;x_coordinate[18]=35;y_coordinate[18]=145;x_coordinate[19]=35;y_coordinate[19]=150;x_coordinate[20]=50;y_coordinate[20]=155;x_coordinate[21]=35;y_coordinate[21]=165;x_coordinate[22]=15;y_coordinate[22]=160;x_coordinate[23]=10;y_coordinate[23]=155;x_coordinate[24]=10;y_coordinate[24]=135;x_coordinate[25]=15;y_coordinate[25]=145;x_coordinate[26]=10;y_coordinate[26]=150;x_coordinate[27]=5;y_coordinate[27]=120;x_coordinate[28]=15;y_coordinate[28]=125;x_coordinate[29]=45;y_coordinate[29]=125;x_coordinate[30]=45;y_coordinate[30]=135;x_coordinate[31]=40;y_coordinate[31]=125;x_coordinate[32]=40;y_coordinate[32]=135;x_coordinate[33]=30;y_coordinate[33]=125;x_coordinate[34]=30;y_coordinate[34]=135;x_coordinate[35]=25;y_coordinate[35]=135;x_coordinate[36]=20;y_coordinate[36]=125;
-target_nodes[0]=16;target_nodes[1]=4;target_nodes[2]=26;target_nodes[3]=18;target_nodes[4]=0;
+target_nodes[0]=34;target_nodes[1]=17;target_nodes[2]=18;target_nodes[3]=17;target_nodes[4]=5;
 
 supply[0]=1;supply[1]=2;supply[2]=3;supply[3]=0;supply[4]=1;supply[5]=2;supply[6]=3;
 end
 
 //red-->01 // green-->10 // blue-->11
 //reg counter=0;
-reg [5:0]start_node=1;////////////////////////////////////
-reg [5:0]end_node=5;///////////////////////////////
+reg [5:0]start_node=0;////////////////////////////////////
+reg [5:0]end_node=1;///////////////////////////////
 integer t=0;
 
 reg [5:0]dist=0;
@@ -132,7 +205,7 @@ reg reverse_temp=0;
 reg [4:0]state=IDLE;
 
 
-always@(posedge clk_50)begin
+always@(posedge freq)begin
 case(state)
 IDLE:
 	begin
@@ -143,7 +216,7 @@ IDLE:
 	robo_command[i]<=0;
 	path[i]<=-1;
 	end
-	
+	robo_command[0]<=-1;
 	
 	end
 inter5:begin
@@ -158,14 +231,14 @@ algo:
 //	reset=0;
 	state<=inter1;
 	for (i=0;i<=n;i=i+1)begin
-	distance[i]<=6'b111111;
+	distance[i]<=10'b1111111111;
 	visited[i]<=0;
 	end
 	
 end
 inter1:begin
 	distance[start_node]<=0;
-//	minVertex<=-1;
+
 	i<=0;
 	state<=inter6;
 	
@@ -215,7 +288,7 @@ end
 
 
 inter4:begin
-if(i<36)begin
+if(i<37)begin
 	i<=i+1;
 //	temp1=0;
 //	minVertex<=-1;
@@ -234,11 +307,10 @@ state<=inter6;
 
 end
 
-///////////////////////////new state added////////////////////////////
 algo2:
 	begin
 
-//state<=algo3;
+state<=algo3;
 t=end_node;
 for(i=0;(i<=12)&&(t!=start_node);i=i+1)begin
 path[i]=t;
@@ -254,7 +326,6 @@ end
 	
 	
 	
-////////////////new state added/////////////////////
 algo3:
 	begin
 //	temp1=1;
@@ -451,25 +522,15 @@ end
 //t<=t+1;
 flag<=1;
 end
-//end
-//
-//if(j==0)begin
-//state<=hold;
-//end
-//else begin
-//j<=j-1;
-//state<=algo3;
-//end
-
 state<=inter;
 end
+
 
 inter:
 begin
 if(flag==1)begin
 flag<=0;
 t<=t+1;
-
 end
 if(j==0)begin
 state<=hold;
@@ -480,26 +541,175 @@ state<=algo3;
 end
 end
 
-///////////new state added//////////////////////////
 hold:
 	
 	begin
-////
-//	if(robo_command[counter]==0/*||color_detected==1*/)begin
-//	reset<=1;
-//	state<=rest;
-//	start_node<=end_node;
-//	end
+//
+	if(robo_command[counter]==0||red==1||green==1||blue==1)begin
+	reset<=1;
+	state<=rest;
+
+	start_node<=end_node;
+	end
+	if(start_node==20||start_node==21||start_node==19||start_node==22||start_node==23||start_node==24||start_node==27||start_node==28)begin
+	sensor_off_temp<=0;
+	end
 end
-////////////////new state added/////////////////
 rest:
 	begin
+// end_node ese choose krne hai jo ki humesha coloured patch ke just baad vala node ho - isse muje thodi sasani hogi kykoi start_node humesha update hojayega apne aap hi
+// alaag se current node bnane ki zarurat nhi hai 
+	if(swap==1)begin
+	if(temp_node==2)begin
+	end_node<=20;
+	end
+	else if(temp_node==3)begin
+	end_node<=21;
+	end
+	else if(temp_node==18)begin
+	end_node<=19;
+	end
+	else if(temp_node==17)begin
+	end_node<=22;
+	end
+	else if(temp_node==26)begin
+	end_node<=23;
+	end
+	else if(temp_node==14)begin
+	end_node<=24;
+	end
+	else if(temp_node==15)begin
+	end_node<=25;
+	end
+	else if(temp_node==36)begin
+	end_node<=28;
+	end
+	else if(temp_node==7)begin
+	end_node<=27;
+	end
+	swap<=0;
+	state<=IDLE;
+	end
+	else if(red==1||green==1||blue==1)begin
+	//color detect hote hi muje search krna hai same color ki supply kha rakhi hai uske baad supply se associated node tak aana hai 
+	//red-->01 // green-->10 // blue-->11
+	//let current node be current_node
+	if(red==1)begin
+	if(supply[0]==1)begin
+	end_node<=29;//jha supply 0 rakhi hai ;
+	supply[0]<=0;
+	end
+	else if(supply[1]==1)begin
+	end_node<=30;//jha supply 1 rakhi hai ;
+	supply[1]<=0;
+	end
+	else if(supply[2]==1)begin
+	
+	end_node<=31;//jha supply 2 rakhi hai
+	supply[2]<=0;
+	end
+	else if(supply[3]==1)begin
+	
+	end_node<=32;//jha supply 3 rakhi hai ;
+	supply[3]<=0;
+	end
+	else if(supply[4]==1)begin
+	end_node<=33;//jha supply 4 rakhi hai ;
+	supply[4]<=0;
+	end
+	else if(supply[5]==1)begin
+	end_node<=34;//jha supply 5 rakhi hai ;
+	supply[5]<=0;
+	end
+	else if(supply[6]==1)begin
+	end_node<=35;//jha supply 6 rakhi hai ;
+	supply[6]<=0;
+	end
+	
+	end
+	else if(green==1)begin
+	if(supply[0]==2)begin
+	end_node<=29;//jha supply 0 rakhi hai ;
+	supply[0]<=0;
+	end
+	else if(supply[1]==2)begin
+	end_node<=30;//jha supply 0 rakhi hai ;
+	supply[1]<=0;
+	end
+	else if(supply[2]==2)begin
+	end_node<=31;//jha supply 0 rakhi hai ;
+	supply[2]<=0;
+	end
+	else if(supply[3]==2)begin
+	end_node<=32;//jha supply 0 rakhi hai ;
+	supply[3]<=0;
+	end
+	else if(supply[4]==2)begin
+	end_node<=33;//jha supply 0 rakhi hai ;
+	supply[4]<=0;
+	end
+	else if(supply[5]==2)begin
+	end_node<=34;//jha supply 0 rakhi hai ;
+	supply[5]<=0;
+	end
+	else if(supply[6]==2)begin
+	end_node<=35;//jha supply 0 rakhi hai ;
+	supply[6]<=0;
+	end
+	
+	end
+	else if(blue==1)begin
+	if(supply[0]==3)begin
+	end_node<=29;//jha supply 0 rakhi hai ;
+	supply[0]<=0;
+	end
+	else if(supply[1]==3)begin
+	end_node<=30;//jha supply 0 rakhi hai ;
+	supply[1]<=0;
+	end
+	else if(supply[2]==3)begin
+	end_node<=31;//jha supply 0 rakhi hai ;
+	supply[2]<=0;
+	end
+	else if(supply[3]==3)begin
+	end_node<=32;//jha supply 0 rakhi hai ;
+	supply[3]<=0;
+	end
+	else if(supply[4]==3)begin
+	end_node<=33;//jha supply 0 rakhi hai ;
+	supply[4]<=0;
+	end
+	else if(supply[5]==3)begin
+	end_node<=34;
+	supply[5]<=0;
+	end
+	else if(supply[6]==3)begin
+	end_node<=35;
+	supply[6]<=0;
+	end
+	
+	
+	end
+	
+	
+	
+	
+	temp_node<=start_node;
+	state<=IDLE;
+	swap<=1;
+	sensor_off_temp<=1;
+	
+	end
+	else begin
 	end_node<=target_nodes[target];
 	state<=rest2;
+	end
 end
-
+//seedha IDLE state mei bhejhdo toh flag nhi bnana padega 
 rest2:
 begin
+
+
 if(target==5)begin
 	target<=0;
 	end
@@ -513,19 +723,45 @@ end
 
 
 
-assign node0=path[0];
-assign node1=path[1];
-assign node2=path[2];
-assign node3=path[3];
-assign node4=path[4];
-assign node5=path[5];
-assign node6=path[6];
-assign node7=path[7];
-assign node8=path[8];
-assign node9=path[9];
-assign node10=path_temp[10];
-assign node11=path_temp[11];
 
+assign sensor_off=sensor_off_temp;
+assign node0=robo_command[0];
+assign node1=robo_command[1];
+assign node2=robo_command[2];
+assign node3=robo_command[3];
+assign node4=robo_command[4];
+assign node5=robo_command[5];
+assign node6=robo_command[6];
+assign node7=robo_command[7];
+assign node8=robo_command[8];
+assign node9=robo_command[9];
+assign node10=robo_command[10];
+assign node11=path_temp[11];
+assign node12=path_temp[12];
+assign node13=path_temp[13];
+assign node14=path_temp[14];
+assign node15=path_temp[15];
+assign node16=path_temp[16];
+assign node17=path_temp[17];
+assign node18=path_temp[18];
+assign node19=path_temp[19];
+assign node20=path_temp[20];
+assign node21=path_temp[21];
+assign node22=path_temp[22];
+assign node23=path_temp[23];
+assign node24=path_temp[24];
+assign node25=path_temp[25];
+assign node26=path_temp[26];
+assign node27=path_temp[27];
+assign node28=path_temp[28];
+assign node29=path_temp[29];
+assign node30=path_temp[30];
+assign node31=path_temp[31];
+assign node32=path_temp[32];
+assign node33=path_temp[33];
+assign node34=path_temp[34];
+assign node35=path_temp[35];
+assign node36=path_temp[36];
 assign start_temp=start_node;
 assign end_temp=end_node;
 assign robo_command_temp=robo_command[counter];
