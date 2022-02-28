@@ -14,11 +14,11 @@ The brain of the bot was powered by an FPGA board that controls its sensors, act
 - Learnt Path Planning Algorithms 
 
                       
-Final Image of the Arena
+### Final Image of the Arena
 
 ![](SM%231153_Task3A/SM%231153_Task3A.jpeg)
 
-Final image of the robot
+### Final image of the robot
 
 <img width="407" alt="image" src="https://user-images.githubusercontent.com/88222914/156010775-a73febb8-10d0-45f8-a8ae-cda05bcacfdd.png">
 
