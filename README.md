@@ -3,16 +3,6 @@
 
 This repository contains all the work of Soil Monitoring Bot theme(eYRC-2021-22). In this theme a Soil Monitoring bot was build to be deployed on an arena which is an abstraction of actual agricultural field.
 The brain of the bot was powered by an FPGA board that controls its sensors, actuators and pick-place mechanism.
-
-## Challenges and Learnings 
-
-- Building the Soil Monitoring Bot from scratch
-- Pick-place mechanism using electromagnet
-- Wired and Wireless communication using XBEE 
-- Learnt powerfull parallel processing capabilities of FPGA 
-- Learnt Verilog Hardware Modelling Language.
-- Learnt Path Planning Algorithms 
-
                       
 ### Final Image of the Arena
 
@@ -25,3 +15,16 @@ The brain of the bot was powered by an FPGA board that controls its sensors, act
 
 
 
+## Challenges and Learnings 
+
+- Building the Soil Monitoring Bot from scratch
+- Pick-place mechanism using electromagnet
+- Wired and Wireless communication using XBEE 
+- 3 channel ADC controller for fetching 12-bit digital value of analog signal from on-board ADC128S022.
+- Interfaced TCS3200 colour sensor with De0 nano FPGA board to detect RGB colours.
+- PID control algorithm to control the movement of the bot.
+- Motor speed variation using PWM. 
+- Circuit Designing 
+- Learnt powerfull parallel processing capabilities of FPGA 
+- Learnt Verilog Hardware Modelling Language.
+- Learnt Path Planning Algorithms.
