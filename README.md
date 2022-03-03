@@ -12,7 +12,17 @@ The brain of the bot was powered by an FPGA board that controls its sensors, act
 
 <img width="407" alt="image" src="https://user-images.githubusercontent.com/88222914/156010775-a73febb8-10d0-45f8-a8ae-cda05bcacfdd.png">
 
-
+### Hardware Used 
+- De0-Nano board
+- 600 rpm N20 motors
+- L9110s Motor Driver
+- 2S Li-ion battery
+- Xbee s2c module
+- TCS3200 Color sensor
+- Level shifter
+- Potentiometer
+- Electromagnet
+- LEDs 
 
 
 ## Challenges and Learnings 
